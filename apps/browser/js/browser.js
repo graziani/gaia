@@ -681,6 +681,7 @@ var Browser = {
     this.currentTab.title = null;
     this.currentTab.url = url;
     this.currentTab.dom.setAttribute('src', url);
+    this.currentTab.dom.focus();
     this.setUrlBar(url);
   },
 
@@ -717,6 +718,7 @@ var Browser = {
       // Switch the hard-reload to soft-reload since hard-reload still has
       // some issue to be fix (bug 831153).
       this.currentTab.dom.reload(false);
+      this.currentTab.dom.focus();
       return;
     }
 
@@ -744,10 +746,12 @@ var Browser = {
 
   goBack: function browser_goBack() {
     this.currentTab.dom.goBack();
+    this.currentTab.dom.focus();
   },
 
   goForward: function browser_goForward() {
     this.currentTab.dom.goForward();
+    this.currentTab.dom.focus();
   },
 
   addBookmark: function browser_addBookmark(e) {
